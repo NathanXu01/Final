@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	     <link rel="stylesheet" type="text/css"
+               href="style.css">
+         <link rel="stylesheet" type="text/css"
+               href="https://fonts.googleapis.com/css?family=Baloo+Tamma">
+         <link rel="stylesheet" 
+	           href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+         <link rel="icon" 
+           type="image/png" 
+           href="project.png">
+		 <title>Image Artist</title>
+    </head>
+    <body>
+		 <ul id="navbar">
+             <li class ="navitem"><font size="-1"><a href="portfolio_1.html">Home</a></li></font>
+			 <li class ="navitem"><font size="-1"><a href="portfolio_2.html">Hobby Website</a></li></font>
+			 <li class ="navitem"><font size="-1"><a href="portfolio_3.html">Bonsai Art</a></li></font>
+			 <li class ="navitem"><font size="-1"><a href="portfolio_4.html">Dream Vacation</a></li></font>
+			 <li class ="navitem"><font size="-1"><a href="portfolio_5.html">Scratch Game</a></li></font>
+			 <li class ="navitem"><font size="-1"><a href="portfolio_6.html">Python Adventure</a></li></font>
+			 <li class ="navitem"><font size="-1"><a class="active" href="portfolio_7.html">Image Artist</a></li></font>
+			 <li class ="navitem"><font size="-1"><a href="portfolio_8.html">Final Project</a></li></font>
+         </ul>
+	<div id="main">
+         <font size="-1"><h1>Image Artist</h1></font>
+         <img src="Before.JPG" width="300"><font size="-1"><li class="white-text">Before</li></font>
+         <img src="After.png" width="300"><font size="-1"><li class="white-text">After</li></font>
+         <font size="-1"><li class="white-text">Code :</li></font>
+         <font size="-1"><p><pre><code class="white-text">import PIL
+import matplotlib.pyplot as plt # single use of plt is commented out
+import os.path  
+import numpy as np            
+
+def filter(original_image):
+    """ Insert comment regarding what this does here
+    
+    original_image must be a PIL.Image
+    """
+
+    #converts the image to a numpy ndarray
+    original_image = original_image.convert("RGB")
+    img = np.array(original_image, np.int32)
+    
+    #gets the width and height of the original image
+    height = len(img)
+    width = len(img[0])
+
+    #makes top left quarter redder and doesn't overflow
+    for row in range(0, height/1):
+        for column in range(0, width/1):
+            r,g,b = img[row][column] #gets the r,g,b values from the pixel
+            r = int(r)
+            g = int(g)
+            b = int(b)
+            b = b + 150
+            if b > 255:
+                b = 255 #prevents overflow
+            img[row][column] = [r,g,b]
+    
+
+    #fig, ax = plt.subplots(1, 3)
+    #show the first step by uncommenting the code below
+    #ax[0].imshow(img)
+
+
+    #sample loop to check if a color is strongly represented
+    for row in range(0, height):
+        for column in range(0, width):
+            #checks if there is a lot of red but not as much green or blue
+            #and turns those pixels yellow
+            if img[row][column][0] > 100 and sum(img[row][column]) < 200:
+                img[row][column] = [255, 255, 0]
+                
+     
+    #show the second step by uncommenting the code below
+    #ax[1].imshow(img)
+
+    #convert it back to an image from an array
+    result = PIL.Image.fromarray(np.uint8(img))
+    
+    return result
+    
+def get_images(directory=None):
+    """ Returns PIL.Image objects for all the images in directory.
+    
+    If directory is not specified, uses current directory.
+    Returns a 2-tuple containing 
+    a list with a  PIL.Image object for each image file in root_directory, and
+    a list with a string filename for each image file in root_directory
+    """
+    
+    if directory == None:
+        directory = os.getcwd() # Use working directory if unspecified
+        
+    image_list = [] # Initialize aggregaotrs
+    file_list = []
+    
+    directory_list = os.listdir(directory) # Get list of files
+    for entry in directory_list:
+        absolute_filename = os.path.join(directory, entry)
+        try:
+            image = PIL.Image.open(absolute_filename)
+            file_list += [entry]
+            image_list += [image]
+        except IOError:
+            pass # do nothing with errors tying to open non-images
+    return image_list, file_list
+
+def filter_all_images(directory=None):
+    """ Saves a modfied version of each image in directory.
+    
+    Uses current directory if no directory is specified. 
+    Places images in subdirectory 'modified', creating it if it does not exist.
+    New image files are of type PNG and have transparent rounded corners.
+    """
+ 
+    if directory == None:
+        directory = os.getcwd() # Use working directory if unspecified
+        
+    # Create a new directory 'altered'
+    new_directory = os.path.join(directory, 'altered')
+    try:
+        os.mkdir(new_directory)
+    except OSError:
+        pass # if the directory already exists, proceed  
+    
+    #load all the images
+    image_list, file_list = get_images(directory)  
+
+    #go through the images and save modified versions
+    for n in range(len(image_list)):
+        # Parse the filename
+        filename, filetype = file_list[n].split('.')
+        
+        # calls your modified method, passing the color parameter
+        new_image = filter(image_list[n])
+
+        #save the altered image, suing PNG to retain transparency
+        new_image_filename = os.path.join(new_directory, filename + '.png')
+        new_image.save(new_image_filename)</code></pre></p></font>
+         
+
+    </div>
+    </body>
+</html>

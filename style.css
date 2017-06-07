@@ -1,0 +1,74 @@
+h1{
+    color: white;
+}
+body{
+    margin: 0;
+}
+
+#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: Chocolate;
+    overflow:hidden;
+    position:fixed;
+    top:0;
+    width:100%;
+}
+
+.navitem{
+    text-align:center;
+    float:left;
+}
+
+.navitem:last-child {
+    border-bottom: none;
+}
+
+.navitem a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+}
+
+.navitem a.active {
+    background-color:Chocolate;
+    color:white;
+}
+
+.navitem a:hover:not(.active) {
+    background-color:white;
+    color:black;
+}
+
+#main {
+    margin-top:30px;
+    padding:20px;
+}
+body {
+    Background-color : black;
+}            
+body {
+    font-family: 'Baloo Tamma', sans-serif;
+    font-size: 22px;
+}
+.white-text{
+    color : white;
+}
+a:link{
+    color : white;
+}
+a:visited{
+    color : white;           
+}
+a:hover{
+    color : Chocolate;
+}
+a:active{
+    color : white;
+}
+li: {
+	color : white;
+}
+

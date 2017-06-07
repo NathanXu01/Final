@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	     <link rel="stylesheet" type="text/css"
+               href="style.css">
+         <link rel="stylesheet" type="text/css"
+               href="https://fonts.googleapis.com/css?family=Baloo+Tamma">
+         <link rel="stylesheet" 
+	           href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+         <link rel="icon" 
+               type="image/png" 
+               href="project.png">
+		 <title>Bonsai Art</title>
+    </head>
+    <body>
+		 <ul id="navbar">
+             <li class ="navitem"><font size="-1"><a href="portfolio_1.html">Home</a></li></font>
+			 <li class ="navitem"><font size="-1"><a href="portfolio_2.html">Hobby Website</a></li>
+			 <li class ="navitem"><font size="-1"><a class="active" href="portfolio_3.html">Bonsai Art</a></li>
+			 <li class ="navitem"><font size="-1"><a href="portfolio_4.html">Dream Vacation</a></li>
+			 <li class ="navitem"><font size="-1"><a href="portfolio_5.html">Scratch Game</a></li>
+			 <li class ="navitem"><font size="-1"><a href="portfolio_6.html">Python Adventure</a></li>
+			 <li class ="navitem"><font size="-1"><a href="portfolio_7.html">Image Artist</a></li>
+			 <li class ="navitem"><font size="-1"><a href="portfolio_8.html">Final Project</a></li>
+         </ul>
+    <div id="main">
+         <font size="-1"><h1>Bonsai Art</h1></font>
+		    <img src="CSE_Bonsi_NathanX.gif">
+			<font size="-1"><p><pre><code class="white-text">
+			var rectPath = new Circle(100, 90, 20, 20).attr({
+			fillColor: 'red',
+			});
+			stage.addChild(rectPath);
+			rectPath.animate(
+				'7s',
+			{
+				x: 100,
+				y: 90,
+				opacity: 0
+			},{
+				easing: 'linear'
+			});
+			var rectPath = new Circle(150, 90, 20, 20).attr({
+				fillColor: 'orange',
+			});
+			stage.addChild(rectPath);
+			rectPath.animate(
+				'10s',
+			{
+				x: 150,
+				y: 90,
+				opacity: 0
+			},{
+				easing: 'linear'
+			});
+
+			var rectPath = new Circle(200, 90, 20, 20).attr({
+				fillColor: 'yellow',
+			});	
+			stage.addChild(rectPath);
+			rectPath.animate(
+				'13s',
+			{
+				x: 200,
+				y: 90,
+				opacity: 0
+			},{
+				easing: 'linear'
+			});
+			var rectPath = new Circle(250, 90, 20, 20).attr({
+				fillColor: 'green',
+			});
+			stage.addChild(rectPath);
+			rectPath.animate(
+				'15s',
+			{
+				x: 250,
+				y: 90,
+				opacity: 0
+			},{
+				easing: 'linear'
+			});
+			var rectPath = new Circle(300, 90, 20, 20).attr({
+				fillColor: '#66ffff',
+			});
+			stage.addChild(rectPath);
+			rectPath.animate(
+				'19s',
+			{
+				x: 300,
+				y: 90,
+				opacity: 0
+			},{
+				easing: 'linear'
+			});
+			var rectPath = new Circle(350, 90, 20, 20).attr({
+				fillColor: 'blue',
+			});
+			stage.addChild(rectPath);
+			rectPath.animate(
+				'20s',
+			{
+				x:350,
+				y: 90,
+				opacity: 0
+			},{
+				easing: 'linear'
+			});
+			var rectPath = new Circle(400, 90, 20, 20).attr({
+				fillColor: 'purple',
+			});
+			stage.addChild(rectPath);
+			rectPath.animate(
+				'23s',
+			{
+				x: 400,
+				y: 90,
+				opacity: 0
+			},{
+				easing: 'linear'
+			});
+			var eye = new Circle(10,-35,7)
+				.attr('fillColor', '#fff');
+			var on  = 'l 60 0 L 60 0 A 60 60 0 1 1 48.54 -35.26';
+			var off = 'l 60 0 L 60 0 A 60 60 0 1 1 60 -0.0001';
+			var pm = new bonsai.Path().attr('fillColor', 'orange');
+			var pacman = new Group()
+				.attr({'y': 100, 'rotation': 0.1}).addTo(stage);
+			pacman.addChild.call(pacman, [pm, eye]);
+			var i = 0;
+			(function loop(e) {
+				setTimeout(loop, 48.5);
+				pm.path(i%8 ? on : off);
+				pacman.attr('x', i);
+				i++;
+			})();</code></pre></p></font>
+            
+            
+    </div>
+    <body>
+<html>
